@@ -65,7 +65,10 @@ function draw() {
 //   text(int(frameRate()),30,40);
 //   pop();
 
- 
+   shapeys = [];
+    shapeys.push(new Shape());
+    shapeys[0].show(mouseX, mouseY);
+  
   
 
   for (let i = 0; i < shape.length; i++) {
@@ -90,7 +93,37 @@ function draw() {
 }
 
 
+class Shape {
+  constructor() {
+    this.pos = createVector();
+    this.radius = 2;
+    this.angle = TWO_PI / 3;
+    this.d = 1;
+  }
+ show(x, y) {
 
+    this.pos = createVector(x,y);
+
+    size = map(sin(frameCount * 312 * sizeSpeed), -1.0, 1.0, minSize, maxSize);
+    this.radius = size;
+    fill(255,0,0);
+    
+    stroke(255, 0, 0);
+    beginShape();
+    for (let a = 0; a < TWO_PI; a += this.angle) {
+      let sx = this.pos.x + cos(a) * this.radius;
+      let sy = this.pos.y + sin(a) * this.radius;
+      vertex(sx, sy);
+      
+    }
+    endShape(CLOSE);
+    // fill(255, 0, 0);
+    // noStroke();
+    // ellipse(x, y, 100, 100)
+  }
+ 
+
+}
 
 
 class Segment {
