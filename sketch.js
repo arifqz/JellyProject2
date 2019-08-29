@@ -33,7 +33,7 @@ function setup() {
   for (let i = 0; i < 25; i++){
     proto.push(new protozoa());
   }
-  for (let i = 0; i < 1; i++) {
+  for (let i = 0; i < 10; i++) {
     shape.push(new Blobbytent(random(1, width), random(1, height)));
   }
 }
